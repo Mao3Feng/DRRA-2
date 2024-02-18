@@ -1,0 +1,121 @@
+cell 0_0
+
+#1-Define internal cell communication
+swb slot=0, option=0, source=5, target=8
+swb slot=0, option=0, source=6, target=9
+swb slot=0, option=0, source=8, target=7
+
+#2-Read input file, 1st round
+io slot=1, port=0, ext_addr_sd=s, ext_addr=0, int_addr=0
+rep slot=1, port=0, level=0, step=0, iter=2, delay=0
+repx slot=1, port=0, level=0, step=1, iter=0, delay=0
+rep slot=1, port=0, level=1, step=1, iter=32, delay=0
+
+#3-Define external cell communication
+route slot=0, option=0, sr=0, source=1, target= 16
+route slot=0, option=0, sr=1, source=4, target= 96
+route slot=0, option=1, sr=0, source=7, target= 16
+route slot=0, option=1, sr=1, source=4, target= 2
+fsm slot=0, port=2, delay_0=65
+rep slot=0, port=2, level=0, step=0, iter=8, delay=5
+rep slot=0, port=2, level=1, step=0, iter=2, delay=11
+
+#4-Import data from IOSRAM to RF5&6 (wide)
+dsu slot=1, port=3, init_addr=0
+rep slot=1, port=3, level=0, iter=8, step=1, delay=0
+rep slot=1, port=3, level=1, iter=8, step=8, delay=0
+repx slot=1, port=3, level=1, iter=0, step=0, delay=1
+rep slot=1, port=3, level=2, iter=2, step=0, delay=6
+repx slot=1, port=3, level=2, iter=0, step=0, delay=1
+
+dsu slot=5, port=2, init_addr=0
+rep slot=5, port=2, level=0, iter=4, step=1, delay=1
+rep slot=5, port=2, level=1, iter=8, step=0, delay=1
+repx slot=5, port=2, level=1, iter=0, step=0, delay=1
+rep slot=5, port=2, level=2, iter=2, step=0, delay=7
+repx slot=5, port=2, level=2, iter=0, step=0, delay=1
+
+dsu slot=6, port=2, init_addr=0
+rep slot=6, port=2, level=0, iter=4, step=1, delay=1
+rep slot=6, port=2, level=1, iter=8, step=0, delay=1
+repx slot=6, port=2, level=1, iter=0, step=0, delay=1
+rep slot=6, port=2, level=2, iter=2, step=0, delay=7
+repx slot=6, port=2, level=2, iter=0, step=0, delay=1
+
+#5-Add vector from RF5&6 to RF7 (narrow)
+dsu slot=5, port=1, init_addr=0
+rep slot=5, port=1, level=0, iter=16, step=1, delay=0
+rep slot=5, port=1, level=1, iter=4, step=16, delay=0
+rep slot=5, port=1, level=2, iter=8, step=0, delay=8
+repx slot=5, port=1, level=2, iter=0, step=0, delay=0
+rep slot=5, port=1, level=3, iter=2, step=0, delay=14
+
+dsu slot=6, port=1, init_addr=0
+rep slot=6, port=1, level=0, iter=16, step=1, delay=0
+rep slot=6, port=1, level=1, iter=4, step=16, delay=0
+rep slot=6, port=1, level=2, iter=8, step=0, delay=8
+repx slot=6, port=1, level=2, iter=0, step=0, delay=0
+rep slot=6, port=1, level=3, iter=2, step=0, delay=14
+
+dpu slot=8, option=0, mode=1
+
+dsu slot=7, port=0, init_addr=0
+rep slot=7, port=0, level=0, iter=16, step=1, delay=0
+rep slot=7, port=0, level=1, iter=4, step=16, delay=0
+rep slot=7, port=0, level=2, iter=8, step=0, delay=8
+repx slot=7, port=0, level=2, iter=0, step=0, delay=0
+rep slot=7, port=0, level=3, iter=2, step=0, delay=14
+
+#6-Export data from RF7 to IOSRAM
+dsu slot=1, port=2, init_addr=0
+rep slot=1, port=2, level=0, iter=4, step=1, delay=0
+rep slot=1, port=2, level=1, iter=8, step=4, delay=4
+repx slot=1, port=2, level=1, iter=0, step=0, delay=1
+rep slot=1, port=2, level=2, iter=2, step=0, delay=10
+repx slot=1, port=2, level=2, iter=0, step=0, delay=1
+
+dsu slot=7, port=3, init_addr=0
+rep slot=7, port=3, level=0, iter=4, step=1, delay=0
+rep slot=7, port=3, level=1, iter=8, step=0, delay=4
+repx slot=7, port=3, level=1, iter=0, step=0, delay=1
+rep slot=7, port=3, level=2, iter=2, step=0, delay=10
+repx slot=7, port=3, level=2, iter=0, step=0, delay=1
+
+#7-Write output file, 1st round
+io slot=1, port=1, ext_addr=0, int_addr=0
+rep slot=1, port=1, level=0, step=1, iter=32, delay=0
+
+#1-Define internal cell communication
+act ports=1
+#2-Read input file, 1st round
+act ports=1, param=1
+#3&4-Define external cell communication&Import data from IOSRAM to RF5&6
+act ports=4
+act ports=8, param=1
+act ports=4, param=5
+act ports=4, param=6
+#5-Add vector from RF5&6 to RF7
+act ports=34, param=5
+act ports=1, param=8
+act ports=1, param=7
+wait cycle=60
+#6-Export data from RF7 to IOSRAM
+act ports=8, param=7
+act ports=4, param=1
+#7-Write output file
+wait cycle=475
+act ports=0b0010, param=1
+
+#8-Read input file, 2nd round
+wait cycle=32
+io slot=1, port=0, ext_addr_sd=s, ext_addr=32, int_addr=0
+rep slot=1, port=0, level=0, step=0, iter=2, delay=0
+repx slot=1, port=0, level=0, step=1, iter=0, delay=0
+rep slot=1, port=0, level=1, step=1, iter=32, delay=0
+act ports=1, param=1
+
+#9-Write output file, 2nd round
+wait cycle=542
+io slot=1, port=1, ext_addr=32, int_addr=0
+rep slot=1, port=1, level=0, step=1, iter=32, delay=0
+act ports=0b0010, param=1
