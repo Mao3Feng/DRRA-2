@@ -15,3 +15,7 @@ Modify the **main.cpp** file to create the verification environment. You need to
 ## Write Assembly Code Segments
 
 Put the assembly code segments in the **asm** folder. The file names should be purely natural numbers starting from 0. Each code segment should be self contained in terms of timing. Meaning that it cannot have any part that relies on event-driving mechanism. After execution of each code segment, the global controller on the fabric is fully synchronized and ready for the next code segment.
+
+## About the asm: (28x28) * (3x3) = (26x26)
+
+This program has been fully optimized. The single state takes 245 cycles. There is an overlapping between 2 stages because of the 3-state FSM.
