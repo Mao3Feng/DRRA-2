@@ -18,4 +18,4 @@ Put the assembly code segments in the **asm** folder. The file names should be p
 
 ## About the asm: (54x54) * (3x3) = (52x52)
 
-The code has been fully optimized. It needs to upload the input file, or write the output file for 4 times, which contains 14, 14, 14, 10 loops of computation.
+The code has been fully optimized. It needs to upload the input file, or write the output file for 4 times. Each time contains 14, 14, 14, 10 loops of computation respectively.
