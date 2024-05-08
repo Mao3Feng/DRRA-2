@@ -15,3 +15,7 @@ Modify the **main.cpp** file to create the verification environment. You need to
 ## Write Assembly Code Segments
 
 Put the assembly code segments in the **asm** folder. The file names should be purely natural numbers starting from 0. Each code segment should be self contained in terms of timing. Meaning that it cannot have any part that relies on event-driving mechanism. After execution of each code segment, the global controller on the fabric is fully synchronized and ready for the next code segment.
+
+## About the asm: (106x106) * (3x3) = (104*104)
+
+It's unnecessary to fulfill the whole process of convolution, because it'll be time-consuming and hard to debug. The code only covers the convolution of row0, row1, row2. The rest timing consumption can thus be deduced.
