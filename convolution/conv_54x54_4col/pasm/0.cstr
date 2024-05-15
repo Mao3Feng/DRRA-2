@@ -1,0 +1,191 @@
+#cell 0_0
+route0r < load_r_2_0
+load_r_2_0 == load_w_2_0
+load_r_2_0 + 1 == read_io_3_0
+
+load_r_2_0 + 10 < load_r_2_1
+
+load_r_2_1 == load_w_2_1
+load_r_2_1 + 1 == read_io_3_1
+
+read_io_3_1 + 11 == dpu.e0[0][0]
+read_io_3_1.e0[1][0] + 11 == dpu.e0[1][0]
+
+
+#cell 1_0
+route1wr < write_filter
+read_io_3_0 + 1 == write_filter
+write_filter < load_r_2_1
+
+swb == dpu
+
+read_io_3_1 + 1 == write_rf4
+write_rf4 + 4 == write_rf5
+write_rf5 + 4 == write_rf6
+read_io_3_1.e0[1][0] + 1 == write_rf4.e0[1][0]
+
+write_rf6 + 1 == read_rf3
+read_rf3 == read_rf4
+read_rf4 + 3 == read_rf5
+read_rf5 + 3 == read_rf6
+
+read_rf3 + 1 == dpu
+
+dpu.e0[0][1] == write_rf7
+write_rf7.e0[0][51] + 1 == read_rf7
+write_rf7.e0[1][51] + 1 == read_rf7.e0[1][0]
+
+
+#cell 2_0
+route2w < write_io_2_1
+read_rf7 + 1 == write_io_2_1
+
+output_r_3_1 == output_w_3_1
+write_io_2_1.e0[13][3] + 1 == output_r_3_1.e0[55]
+
+
+
+
+
+#cell 0_1
+route0r_c1 < load_r_2_0_c1
+load_r_2_0_c1 == load_w_2_0_c1
+load_r_2_0_c1 + 1 == read_io_3_0_c1
+
+load_r_2_0_c1 + 10 < load_r_2_1_c1
+
+load_r_2_1_c1 == load_w_2_1_c1
+load_r_2_1_c1 + 1 == read_io_3_1_c1
+
+read_io_3_1_c1 + 11 == dpu_c1.e0[0][0]
+read_io_3_1_c1.e0[1][0] + 11 == dpu_c1.e0[1][0]
+
+
+#cell 1_1
+route1wr_c1 < write_filter_c1
+read_io_3_0_c1 + 1 == write_filter_c1
+write_filter_c1 < load_r_2_1_c1
+
+swb_c1 == dpu_c1
+
+read_io_3_1_c1 + 1 == write_rf4_c1
+write_rf4_c1 + 4 == write_rf5_c1
+write_rf5_c1 + 4 == write_rf6_c1
+read_io_3_1_c1.e0[1][0] + 1 == write_rf4_c1.e0[1][0]
+
+write_rf6_c1 + 1 == read_rf3_c1
+read_rf3_c1 == read_rf4_c1
+read_rf4_c1 + 3 == read_rf5_c1
+read_rf5_c1 + 3 == read_rf6_c1
+
+read_rf3_c1 + 1 == dpu_c1
+
+dpu_c1.e0[0][1] == write_rf7_c1
+write_rf7_c1.e0[0][51] + 1 == read_rf7_c1
+write_rf7_c1.e0[1][51] + 1 == read_rf7_c1.e0[1][0]
+
+
+#cell 2_1
+route2w_c1 < write_io_2_1_c1
+read_rf7_c1 + 1 == write_io_2_1_c1
+
+output_r_3_1_c1 == output_w_3_1_c1
+write_io_2_1_c1.e0[13][3] + 1 == output_r_3_1_c1.e0[55]
+
+
+
+
+
+#cell 0_2
+route0r_c2 < load_r_2_0_c2
+load_r_2_0_c2 == load_w_2_0_c2
+load_r_2_0_c2 + 1 == read_io_3_0_c2
+
+load_r_2_0_c2 + 10 < load_r_2_1_c2
+
+load_r_2_1_c2 == load_w_2_1_c2
+load_r_2_1_c2 + 1 == read_io_3_1_c2
+
+read_io_3_1_c2 + 11 == dpu_c2.e0[0][0]
+read_io_3_1_c2.e0[1][0] + 11 == dpu_c2.e0[1][0]
+
+
+#cell 1_2
+route1wr_c2 < write_filter_c2
+read_io_3_0 + 1 == write_filter_c2
+write_filter_c2 < load_r_2_1_c2
+
+swb_c2 == dpu_c2
+
+read_io_3_1_c2 + 1 == write_rf4_c2
+write_rf4_c2 + 4 == write_rf5_c2
+write_rf5_c2 + 4 == write_rf6_c2
+read_io_3_1_c2.e0[1][0] + 1 == write_rf4_c2.e0[1][0]
+
+write_rf6_c2 + 1 == read_rf3_c2
+read_rf3_c2 == read_rf4_c2
+read_rf4_c2 + 3 == read_rf5_c2
+read_rf5_c2 + 3 == read_rf6_c2
+
+read_rf3_c2 + 1 == dpu_c2
+
+dpu_c2.e0[0][1] == write_rf7_c2
+write_rf7_c2.e0[0][51] + 1 == read_rf7_c2
+write_rf7_c2.e0[1][51] + 1 == read_rf7_c2.e0[1][0]
+
+
+#cell 2_2
+route2w_c2 < write_io_2_1_c2
+read_rf7_c2 + 1 == write_io_2_1_c2
+
+output_r_3_1_c2 == output_w_3_1_c2
+write_io_2_1_c2.e0[13][3] + 1 == output_r_3_1_c2.e0[55]
+
+
+
+
+
+#cell 0_3
+route0r_c3 < load_r_2_0_c3
+load_r_2_0_c3 == load_w_2_0_c3
+load_r_2_0_c3 + 1 == read_io_3_0_c3
+
+load_r_2_0_c3 + 10 < load_r_2_1_c3
+
+load_r_2_1_c3 == load_w_2_1_c3
+load_r_2_1_c3 + 1 == read_io_3_1_c3
+
+read_io_3_1_c3 + 11 == dpu_c3.e0[0][0]
+read_io_3_1_c3.e0[1][0] + 11 == dpu_c3.e0[1][0]
+
+
+#cell 1_3
+route1wr_c3 < write_filter_c3
+read_io_3_0_c3 + 1 == write_filter_c3
+write_filter_c3 < load_r_2_1_c3
+
+swb_c3 == dpu_c3
+
+read_io_3_1_c3 + 1 == write_rf4_c3
+write_rf4_c3 + 4 == write_rf5_c3
+write_rf5_c3 + 4 == write_rf6_c3
+read_io_3_1_c3.e0[1][0] + 1 == write_rf4_c3.e0[1][0]
+
+write_rf6_c3 + 1 == read_rf3_c3
+read_rf3_c3 == read_rf4_c3
+read_rf4_c3 + 3 == read_rf5_c3
+read_rf5_c3 + 3 == read_rf6_c3
+
+read_rf3_c3 + 1 == dpu_c3
+
+dpu_c3.e0[0][1] == write_rf7_c3
+write_rf7_c3.e0[0][51] + 1 == read_rf7_c3
+write_rf7_c3.e0[1][51] + 1 == read_rf7_c3.e0[1][0]
+
+
+#cell 2_3
+route2w_c3 < write_io_2_1_c3
+read_rf7_c3 + 1 == write_io_2_1_c3
+
+output_r_3_1_c3 == output_w_3_1_c3
+write_io_2_1_c3.e0[9][3] + 1 == output_r_3_1_c3.e0[39]
