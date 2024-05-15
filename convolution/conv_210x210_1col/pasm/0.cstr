@@ -1,0 +1,71 @@
+#cell 0_0
+route0r < load_r_2_0
+load_r_2_0 == load_w_2_0
+load_r_2_0 + 1 == read_io_3_0
+
+load_r_2_0 + 10 < load_r_2_1
+
+load_r_2_1 == load_w_2_1
+load_r_2_1 + 21 == read_io_3_1_1
+
+read_io_3_1_1 + 11 == dpu.e0[0]
+read_io_3_1_1.e0[1][0][0] + 11 == dpu.e0[64]
+read_io_3_1_2 + 7 == dpu.e0[62]
+read_io_3_1_2.e0[1][0][0] + 7 == dpu.e0[126]
+read_io_3_1_3 + 7 == dpu.e0[192]
+
+
+#cell 1_0
+route1wr < write_filter
+read_io_3_0 + 1 == write_filter
+write_filter < load_r_2_1
+
+swb == dpu
+
+read_io_3_1_1 + 1 == write_rf4_1
+write_rf4_1 + 4 == write_rf5_1
+write_rf5_1 + 4 == write_rf6_1
+read_io_3_1_1.e0[1][0][0] + 1 == write_rf4_1.e0[1][0]
+
+read_io_3_1_2 + 1 == write_rf4_2
+write_rf4_2 + 2 == write_rf5_2
+write_rf5_2 + 2 == write_rf6_2
+read_io_3_1_2.e0[1][0][0] + 1 == write_rf4_2.e0[1][0]
+
+read_io_3_1_3 + 1 == write_rf4_3
+write_rf4_3 + 2 == write_rf5_3
+write_rf5_3 + 2 == write_rf6_3
+
+write_rf6_1 + 1 == read_rf3
+read_rf3 == read_rf4_1
+read_rf4_1 + 3 == read_rf5_1
+read_rf5_1 + 3 == read_rf6_1
+
+read_rf3.e0[62][0] == read_rf4_2
+read_rf4_2 + 3 == read_rf5_2
+read_rf5_2 + 3 == read_rf6_2
+
+read_rf3.e0[192][0] == read_rf4_3
+read_rf4_3 + 3 == read_rf5_3
+read_rf5_3 + 3 == read_rf6_3
+
+read_rf3 + 1 == dpu
+
+dpu.e0[1] == write_rf7_1
+dpu.e0[193] == write_rf7_2
+write_rf7_1.e0[0][63] == read_rf7_1
+write_rf7_1.e0[1][63] == read_rf7_1.e0[1][0]
+write_rf7_2.e0[15] + 1 == read_rf7_2
+
+read_io_zero + 2 == write_rf7_2
+read_io_zero + 1 == write_rf7_zero
+
+
+#cell 2_0
+route2w < write_io_2_1_1
+read_rf7_1 + 1 == write_io_2_1_1
+read_rf7_1.e0[1][0] + 1 == write_io_2_1_1.e0[1][0]
+
+read_rf7_2 + 1 == write_io_2_1_2
+output_r_3_1 == output_w_3_1
+write_io_2_1_2 + 1 == output_r_3_1.e0[12]
