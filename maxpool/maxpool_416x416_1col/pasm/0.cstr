@@ -1,0 +1,49 @@
+#cell 0_0
+route0r < load_r_2_1
+
+load_r_2_1 == load_w_2_1
+load_r_2_1 + 23 == read_io_3_1
+
+read_io_3_1 + 7 == dpu.e0[0]
+read_io_3_1.e0[1][0][0] + 7 == dpu.e0[32]
+
+read_io_3_2 + 5 == dpu.e0[192]
+
+
+#cell 1_0
+route1wr < read_io_3_1
+
+swb == dpu
+
+read_io_3_1 + 1 == write_rf3_1
+write_rf3_1 + 4 == write_rf4_1
+
+
+read_io_3_2 + 1 == write_rf3_2
+write_rf3_2 + 2 == write_rf4_2
+
+write_rf4_1 + 1 == read_rf3_1
+read_rf3_1 + 2 == read_rf4_1
+
+read_rf3_1 + 1 == dpu
+
+write_rf4_2 + 1 == read_rf3_2
+read_rf3_2 + 2 == read_rf4_2
+
+write_rf5_1 == dpu.e0[1]
+write_rf5_2 == dpu.e0[193]
+
+write_rf5_1.e0[0][63] + 1 == read_rf5_1
+write_rf5_1.e0[1][63] + 1 == read_rf5_1.e0[1][0]
+
+write_rf5_2.e0[15] + 1 == read_rf5_2
+
+#cell 2_0
+route2w < write_io_2_1
+read_rf5_1 + 1 == write_io_2_1
+read_rf5_1.e0[1][0] + 1 == write_io_2_1.e0[1][0]
+
+read_rf5_2 + 1 == write_io_2_2
+
+output_r_3_1 == output_w_3_1
+write_io_2_2 + 1 == output_r_3_1.e0[12]
