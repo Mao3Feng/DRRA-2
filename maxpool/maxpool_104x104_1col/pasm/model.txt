@@ -1,0 +1,89 @@
+operation route0r route0r_e0
+operation load_r_2_1 R<13,t0>(R<56,0>(load_r_2_1_e0))
+operation load_w_2_1 R<13,t0>(R<56,0>(load_w_2_1_e0))
+operation read_io_3_1 R<13,t1>(R<4,t1>(R<2,0>(R<4,0>(read_io_3_1_e0))))
+operation read_io_3_2 R<13,t2>(R<4,t2>(R<2,0>(R<3,0>(read_io_3_2_e0))))
+operation route1wr route1wr_e0
+operation swb R<52,1>(R<52,1>(T<1>(swb_e0, swb_e1)))
+operation write_rf3_1 R<52,t3>(R<4,0>(write_rf3_1_e0))
+operation write_rf4_1 R<52,t3>(R<4,0>(write_rf4_1_e0))
+operation write_rf3_2 R<52,t4>(R<3,0>(write_rf3_2_e0))
+operation write_rf4_2 R<52,t4>(R<3,0>(write_rf4_2_e0))
+operation read_rf3_1 R<52,82>(R<32,2>(R<2,0>(read_rf3_1_e0)))
+operation read_rf4_1 R<52,82>(R<32,2>(R<2,0>(read_rf4_1_e0)))
+operation read_rf3_2 R<52,130>(R<20,2>(R<2,0>(read_rf3_2_e0)))
+operation read_rf4_2 R<52,130>(R<20,2>(R<2,0>(read_rf4_2_e0)))
+operation dpu R<52,3>(R<52,3>(dpu_e0))
+operation write_rf5 R<52,3>(R<52,3>(write_rf5_e0))
+operation read_rf5 R<52,t7>(R<4,0>(read_rf5_e0))
+operation route2w route2w_e0
+operation write_io_2_1 R<13,t5>(R<4,t5>(R<4,0>(write_io_2_1_e0)))
+operation output_r_3_1 R<13,t6>(R<16,0>(output_r_3_1_e0))
+operation output_w_3_1 R<13,t6>(R<16,0>(output_w_3_1_e0))
+anchor load_r_2_1_e0_0_0 load_r_2_1_e0[0][0]
+anchor load_w_2_1_e0_0_0 load_w_2_1_e0[0][0]
+anchor read_io_3_1_e0_0_0_0_0 read_io_3_1_e0[0][0][0][0]
+anchor dpu_e0_0_0 dpu_e0[0][0]
+anchor read_io_3_1_e0_0_1_0_0 read_io_3_1_e0[0][1][0][0]
+anchor dpu_e0_1_0 dpu_e0[1][0]
+anchor load_r_2_1_e0_1_0 load_r_2_1_e0[1][0]
+anchor read_io_3_1_e0_1_0_0_0 read_io_3_1_e0[1][0][0][0]
+anchor read_io_3_2_e0_0_0_0_0 read_io_3_2_e0[0][0][0][0]
+anchor dpu_e0_0_32 dpu_e0[0][32]
+anchor read_io_3_2_e0_0_1_0_0 read_io_3_2_e0[0][1][0][0]
+anchor dpu_e0_1_32 dpu_e0[1][32]
+anchor swb_e0_0_0 swb_e0[0][0]
+anchor write_rf3_1_e0_0_0 write_rf3_1_e0[0][0]
+anchor write_rf4_1_e0_0_0 write_rf4_1_e0[0][0]
+anchor write_rf3_1_e0_1_0 write_rf3_1_e0[1][0]
+anchor write_rf3_2_e0_0_0 write_rf3_2_e0[0][0]
+anchor write_rf4_2_e0_0_0 write_rf4_2_e0[0][0]
+anchor write_rf3_2_e0_1_0 write_rf3_2_e0[1][0]
+anchor read_rf3_1_e0_0_0_0 read_rf3_1_e0[0][0][0]
+anchor read_rf4_1_e0_0_0_0 read_rf4_1_e0[0][0][0]
+anchor read_rf3_2_e0_0_0_0 read_rf3_2_e0[0][0][0]
+anchor read_rf4_2_e0_0_0_0 read_rf4_2_e0[0][0][0]
+anchor dpu_e0_0_1 dpu_e0[0][1]
+anchor write_rf5_e0_0_0 write_rf5_e0[0][0]
+anchor write_rf5_e0_0_51 write_rf5_e0[0][51]
+anchor read_rf5_e0_0_0 read_rf5_e0[0][0]
+anchor write_rf5_e0_1_51 write_rf5_e0[1][51]
+anchor read_rf5_e0_1_0 read_rf5_e0[1][0]
+anchor write_io_2_1_e0_0_0_0 write_io_2_1_e0[0][0][0]
+anchor write_io_2_1_e0_0_1_0 write_io_2_1_e0[0][1][0]
+anchor output_r_3_1_e0_0_0 output_r_3_1_e0[0][0]
+anchor output_w_3_1_e0_0_0 output_w_3_1_e0[0][0]
+anchor write_io_2_1_e0_0_3_3 write_io_2_1_e0[0][3][3]
+anchor output_r_3_1_e0_0_15 output_r_3_1_e0[0][15]
+anchor write_io_2_1_e0_1_3_3 write_io_2_1_e0[1][3][3]
+anchor output_r_3_1_e0_1_15 output_r_3_1_e0[1][15]
+constraint route0r_e0 < load_r_2_1_e0_0_0
+constraint load_r_2_1_e0_0_0 == load_w_2_1_e0_0_0
+constraint load_r_2_1_e0_0_0 + 4 == read_io_3_1_e0_0_0_0_0
+constraint read_io_3_1_e0_0_0_0_0 + 7 == dpu_e0_0_0
+constraint read_io_3_1_e0_0_1_0_0 + 7 == dpu_e0_1_0
+constraint load_r_2_1_e0_1_0 + 4 == read_io_3_1_e0_1_0_0_0
+constraint read_io_3_2_e0_0_0_0_0 + 6 == dpu_e0_0_32
+constraint read_io_3_2_e0_0_1_0_0 + 6 == dpu_e0_1_32
+constraint route1wr_e0 < read_io_3_1_e0_0_0_0_0
+constraint swb_e0_0_0 == dpu_e0_0_0
+constraint read_io_3_1_e0_0_0_0_0 + 1 == write_rf3_1_e0_0_0
+constraint write_rf3_1_e0_0_0 + 4 == write_rf4_1_e0_0_0
+constraint read_io_3_1_e0_0_1_0_0 + 1 == write_rf3_1_e0_1_0
+constraint read_io_3_2_e0_0_0_0_0 + 1 == write_rf3_2_e0_0_0
+constraint write_rf3_2_e0_0_0 + 3 == write_rf4_2_e0_0_0
+constraint read_io_3_2_e0_0_1_0_0 + 1 == write_rf3_2_e0_1_0
+constraint write_rf4_1_e0_0_0 + 1 == read_rf3_1_e0_0_0_0
+constraint read_rf3_1_e0_0_0_0 + 2 == read_rf4_1_e0_0_0_0
+constraint read_rf3_1_e0_0_0_0 + 1 == dpu_e0_0_0
+constraint write_rf4_2_e0_0_0 + 1 == read_rf3_2_e0_0_0_0
+constraint read_rf3_2_e0_0_0_0 + 2 == read_rf4_2_e0_0_0_0
+constraint dpu_e0_0_1 == write_rf5_e0_0_0
+constraint write_rf5_e0_0_51 + 1 == read_rf5_e0_0_0
+constraint write_rf5_e0_1_51 + 1 == read_rf5_e0_1_0
+constraint route2w_e0 < write_io_2_1_e0_0_0_0
+constraint read_rf5_e0_0_0 + 1 == write_io_2_1_e0_0_0_0
+constraint read_rf5_e0_1_0 + 1 == write_io_2_1_e0_0_1_0
+constraint output_r_3_1_e0_0_0 == output_w_3_1_e0_0_0
+constraint write_io_2_1_e0_0_3_3 + 1 == output_r_3_1_e0_0_15
+constraint write_io_2_1_e0_1_3_3 + 1 == output_r_3_1_e0_1_15
