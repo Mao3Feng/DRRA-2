@@ -1,0 +1,275 @@
+cell 0_0
+wait mode=0, cycle=15
+route slot=0, option=0, sr=0, source=2, target=128
+dsu slot=1, init_addr_sd=0, init_addr=0, port=2
+rep slot=1, port=2, level=0, iter=4, step=1, delay=0
+dsu slot=1, init_addr_sd=0, init_addr=0, port=0
+rep slot=1, port=0, level=0, iter=4, step=1, delay=0
+dsu slot=2, init_addr_sd=0, init_addr=0, port=3
+rep slot=2, port=3, level=0, iter=2, step=1, delay=0
+act ports=4, mode=0, param=0
+rep slot=2, port=3, level=1, iter=3, step=1, delay=46
+act ports=5, mode=0, param=1
+act ports=8, mode=0, param=2
+wait mode=0, cycle=151
+cell 1_0
+wait mode=0, cycle=1
+route slot=0, option=0, sr=1, source=1, target=24
+route slot=0, option=0, sr=0, source=5, target=128
+dsu slot=3, init_addr_sd=0, init_addr=0, port=2
+rep slot=3, port=2, level=0, iter=3, step=0, delay=47
+dsu slot=4, init_addr_sd=0, init_addr=0, port=2
+rep slot=4, port=2, level=0, iter=3, step=0, delay=47
+dsu slot=3, init_addr_sd=0, init_addr=0, port=1
+rep slot=3, port=1, level=0, iter=2, step=1, delay=0
+rep slot=3, port=1, level=1, iter=12, step=1, delay=2
+rep slot=3, port=1, level=2, iter=3, step=0, delay=2
+dpu slot=1, option=0, mode=16, immediate=0
+rep slot=1, port=0, level=0, iter=36, step=0, delay=3
+swb slot=0, option=0, channel=0, source=3, target=1
+swb slot=0, option=0, channel=0, source=1, target=5
+swb slot=0, option=1, channel=0, source=4, target=1
+swb slot=0, option=1, channel=0, source=1, target=5
+fsm slot=0, port=0, delay_0=1, delay_1=0, delay_2=0
+rep slot=0, port=0, level=0, iter=12, step=0, delay=1
+rep slot=0, port=0, level=1, iter=3, step=0, delay=1
+dsu slot=4, init_addr_sd=0, init_addr=0, port=1
+rep slot=4, port=1, level=0, iter=2, step=1, delay=0
+act ports=4, mode=0, param=0
+rep slot=4, port=1, level=1, iter=12, step=1, delay=2
+rep slot=4, port=1, level=2, iter=3, step=0, delay=2
+dsu slot=5, init_addr_sd=0, init_addr=0, port=0
+act ports=4, mode=0, param=3
+act ports=4, mode=0, param=4
+act ports=2, mode=0, param=3
+act ports=17, mode=0, param=0
+act ports=2, mode=0, param=4
+rep slot=5, port=0, level=0, iter=12, step=1, delay=3
+rep slot=5, port=0, level=1, iter=3, step=0, delay=3
+act ports=1, mode=0, param=5
+wait mode=0, cycle=42
+dsu slot=5, init_addr_sd=0, init_addr=0, port=3
+rep slot=5, port=3, level=0, iter=3, step=0, delay=47
+act ports=8, mode=0, param=5
+wait mode=0, cycle=98
+cell 2_0
+wait mode=0, cycle=21
+route slot=0, option=0, sr=1, source=1, target=4
+act ports=4, mode=0, param=0
+wait mode=0, cycle=54
+dsu slot=2, init_addr_sd=0, init_addr=0, port=2
+rep slot=2, port=2, level=0, iter=3, step=1, delay=47
+act ports=4, mode=0, param=2
+wait mode=0, cycle=90
+dsu slot=1, init_addr_sd=0, init_addr=0, port=1
+rep slot=1, port=1, level=0, iter=3, step=1, delay=0
+dsu slot=1, init_addr_sd=0, init_addr=0, port=3
+rep slot=1, port=3, level=0, iter=3, step=1, delay=0
+act ports=10, mode=0, param=1
+wait mode=0, cycle=2
+cell 0_1
+wait mode=0, cycle=15
+route slot=0, option=0, sr=0, source=2, target=128
+dsu slot=1, init_addr_sd=0, init_addr=0, port=2
+rep slot=1, port=2, level=0, iter=4, step=1, delay=0
+dsu slot=1, init_addr_sd=0, init_addr=3, port=0
+rep slot=1, port=0, level=0, iter=4, step=1, delay=0
+dsu slot=2, init_addr_sd=0, init_addr=0, port=3
+rep slot=2, port=3, level=0, iter=2, step=1, delay=0
+act ports=4, mode=0, param=0
+rep slot=2, port=3, level=1, iter=3, step=1, delay=46
+act ports=5, mode=0, param=1
+act ports=8, mode=0, param=2
+wait mode=0, cycle=151
+cell 1_1
+wait mode=0, cycle=1
+route slot=0, option=0, sr=1, source=1, target=24
+route slot=0, option=0, sr=0, source=5, target=128
+dsu slot=3, init_addr_sd=0, init_addr=0, port=2
+rep slot=3, port=2, level=0, iter=3, step=0, delay=47
+dsu slot=4, init_addr_sd=0, init_addr=0, port=2
+rep slot=4, port=2, level=0, iter=3, step=0, delay=47
+dsu slot=3, init_addr_sd=0, init_addr=0, port=1
+rep slot=3, port=1, level=0, iter=2, step=1, delay=0
+rep slot=3, port=1, level=1, iter=12, step=1, delay=2
+rep slot=3, port=1, level=2, iter=3, step=0, delay=2
+dpu slot=1, option=0, mode=16, immediate=0
+rep slot=1, port=0, level=0, iter=36, step=0, delay=3
+swb slot=0, option=0, channel=0, source=3, target=1
+swb slot=0, option=0, channel=0, source=1, target=5
+swb slot=0, option=1, channel=0, source=4, target=1
+swb slot=0, option=1, channel=0, source=1, target=5
+fsm slot=0, port=0, delay_0=1, delay_1=0, delay_2=0
+rep slot=0, port=0, level=0, iter=12, step=0, delay=1
+rep slot=0, port=0, level=1, iter=3, step=0, delay=1
+dsu slot=4, init_addr_sd=0, init_addr=0, port=1
+rep slot=4, port=1, level=0, iter=2, step=1, delay=0
+act ports=4, mode=0, param=0
+rep slot=4, port=1, level=1, iter=12, step=1, delay=2
+rep slot=4, port=1, level=2, iter=3, step=0, delay=2
+dsu slot=5, init_addr_sd=0, init_addr=0, port=0
+act ports=4, mode=0, param=3
+act ports=4, mode=0, param=4
+act ports=2, mode=0, param=3
+act ports=17, mode=0, param=0
+act ports=2, mode=0, param=4
+rep slot=5, port=0, level=0, iter=12, step=1, delay=3
+rep slot=5, port=0, level=1, iter=3, step=0, delay=3
+act ports=1, mode=0, param=5
+wait mode=0, cycle=42
+dsu slot=5, init_addr_sd=0, init_addr=0, port=3
+rep slot=5, port=3, level=0, iter=3, step=0, delay=47
+act ports=8, mode=0, param=5
+wait mode=0, cycle=98
+cell 2_1
+wait mode=0, cycle=21
+route slot=0, option=0, sr=1, source=1, target=4
+act ports=4, mode=0, param=0
+wait mode=0, cycle=54
+dsu slot=2, init_addr_sd=0, init_addr=0, port=2
+rep slot=2, port=2, level=0, iter=3, step=1, delay=47
+act ports=4, mode=0, param=2
+wait mode=0, cycle=90
+dsu slot=1, init_addr_sd=0, init_addr=3, port=1
+rep slot=1, port=1, level=0, iter=3, step=1, delay=0
+dsu slot=1, init_addr_sd=0, init_addr=0, port=3
+rep slot=1, port=3, level=0, iter=3, step=1, delay=0
+act ports=10, mode=0, param=1
+wait mode=0, cycle=2
+cell 0_2
+wait mode=0, cycle=15
+route slot=0, option=0, sr=0, source=2, target=128
+dsu slot=1, init_addr_sd=0, init_addr=0, port=2
+rep slot=1, port=2, level=0, iter=4, step=1, delay=0
+dsu slot=1, init_addr_sd=0, init_addr=6, port=0
+rep slot=1, port=0, level=0, iter=4, step=1, delay=0
+dsu slot=2, init_addr_sd=0, init_addr=0, port=3
+rep slot=2, port=3, level=0, iter=2, step=1, delay=0
+act ports=4, mode=0, param=0
+rep slot=2, port=3, level=1, iter=3, step=1, delay=46
+act ports=5, mode=0, param=1
+act ports=8, mode=0, param=2
+wait mode=0, cycle=151
+cell 1_2
+wait mode=0, cycle=1
+route slot=0, option=0, sr=1, source=1, target=24
+route slot=0, option=0, sr=0, source=5, target=128
+dsu slot=3, init_addr_sd=0, init_addr=0, port=2
+rep slot=3, port=2, level=0, iter=3, step=0, delay=47
+dsu slot=4, init_addr_sd=0, init_addr=0, port=2
+rep slot=4, port=2, level=0, iter=3, step=0, delay=47
+dsu slot=3, init_addr_sd=0, init_addr=0, port=1
+rep slot=3, port=1, level=0, iter=2, step=1, delay=0
+rep slot=3, port=1, level=1, iter=12, step=1, delay=2
+rep slot=3, port=1, level=2, iter=3, step=0, delay=2
+dpu slot=1, option=0, mode=16, immediate=0
+rep slot=1, port=0, level=0, iter=36, step=0, delay=3
+swb slot=0, option=0, channel=0, source=3, target=1
+swb slot=0, option=0, channel=0, source=1, target=5
+swb slot=0, option=1, channel=0, source=4, target=1
+swb slot=0, option=1, channel=0, source=1, target=5
+fsm slot=0, port=0, delay_0=1, delay_1=0, delay_2=0
+rep slot=0, port=0, level=0, iter=12, step=0, delay=1
+rep slot=0, port=0, level=1, iter=3, step=0, delay=1
+dsu slot=4, init_addr_sd=0, init_addr=0, port=1
+rep slot=4, port=1, level=0, iter=2, step=1, delay=0
+act ports=4, mode=0, param=0
+rep slot=4, port=1, level=1, iter=12, step=1, delay=2
+rep slot=4, port=1, level=2, iter=3, step=0, delay=2
+dsu slot=5, init_addr_sd=0, init_addr=0, port=0
+act ports=4, mode=0, param=3
+act ports=4, mode=0, param=4
+act ports=2, mode=0, param=3
+act ports=17, mode=0, param=0
+act ports=2, mode=0, param=4
+rep slot=5, port=0, level=0, iter=12, step=1, delay=3
+rep slot=5, port=0, level=1, iter=3, step=0, delay=3
+act ports=1, mode=0, param=5
+wait mode=0, cycle=42
+dsu slot=5, init_addr_sd=0, init_addr=0, port=3
+rep slot=5, port=3, level=0, iter=3, step=0, delay=47
+act ports=8, mode=0, param=5
+wait mode=0, cycle=98
+cell 2_2
+wait mode=0, cycle=21
+route slot=0, option=0, sr=1, source=1, target=4
+act ports=4, mode=0, param=0
+wait mode=0, cycle=54
+dsu slot=2, init_addr_sd=0, init_addr=0, port=2
+rep slot=2, port=2, level=0, iter=3, step=1, delay=47
+act ports=4, mode=0, param=2
+wait mode=0, cycle=90
+dsu slot=1, init_addr_sd=0, init_addr=6, port=1
+rep slot=1, port=1, level=0, iter=3, step=1, delay=0
+dsu slot=1, init_addr_sd=0, init_addr=0, port=3
+rep slot=1, port=3, level=0, iter=3, step=1, delay=0
+act ports=10, mode=0, param=1
+wait mode=0, cycle=2
+cell 0_3
+wait mode=0, cycle=14
+route slot=0, option=0, sr=0, source=2, target=128
+dsu slot=1, init_addr_sd=0, init_addr=0, port=2
+rep slot=1, port=2, level=0, iter=4, step=1, delay=0
+dsu slot=1, init_addr_sd=0, init_addr=9, port=0
+rep slot=1, port=0, level=0, iter=4, step=1, delay=0
+dsu slot=2, init_addr_sd=0, init_addr=0, port=3
+rep slot=2, port=3, level=0, iter=2, step=1, delay=0
+rep slot=2, port=3, level=1, iter=3, step=1, delay=46
+act ports=4, mode=0, param=0
+act ports=5, mode=0, param=1
+act ports=8, mode=0, param=2
+wait mode=0, cycle=152
+cell 1_3
+route slot=0, option=0, sr=1, source=1, target=24
+route slot=0, option=0, sr=0, source=5, target=128
+dsu slot=3, init_addr_sd=0, init_addr=0, port=2
+rep slot=3, port=2, level=0, iter=3, step=0, delay=47
+dsu slot=4, init_addr_sd=0, init_addr=0, port=2
+rep slot=4, port=2, level=0, iter=3, step=0, delay=47
+dsu slot=3, init_addr_sd=0, init_addr=0, port=1
+rep slot=3, port=1, level=0, iter=2, step=1, delay=0
+rep slot=3, port=1, level=1, iter=12, step=1, delay=2
+rep slot=3, port=1, level=2, iter=3, step=0, delay=2
+dpu slot=1, option=0, mode=16, immediate=0
+rep slot=1, port=0, level=0, iter=36, step=0, delay=3
+swb slot=0, option=0, channel=0, source=3, target=1
+swb slot=0, option=0, channel=0, source=1, target=5
+swb slot=0, option=1, channel=0, source=4, target=1
+swb slot=0, option=1, channel=0, source=1, target=5
+fsm slot=0, port=0, delay_0=1, delay_1=0, delay_2=0
+rep slot=0, port=0, level=0, iter=12, step=0, delay=1
+rep slot=0, port=0, level=1, iter=3, step=0, delay=1
+dsu slot=4, init_addr_sd=0, init_addr=0, port=1
+rep slot=4, port=1, level=0, iter=2, step=1, delay=0
+rep slot=4, port=1, level=1, iter=12, step=1, delay=2
+act ports=4, mode=0, param=0
+rep slot=4, port=1, level=2, iter=3, step=0, delay=2
+dsu slot=5, init_addr_sd=0, init_addr=0, port=0
+act ports=4, mode=0, param=3
+act ports=4, mode=0, param=4
+act ports=2, mode=0, param=3
+act ports=17, mode=0, param=0
+act ports=2, mode=0, param=4
+rep slot=5, port=0, level=0, iter=12, step=1, delay=3
+rep slot=5, port=0, level=1, iter=3, step=0, delay=3
+act ports=1, mode=0, param=5
+wait mode=0, cycle=42
+dsu slot=5, init_addr_sd=0, init_addr=0, port=3
+rep slot=5, port=3, level=0, iter=3, step=0, delay=47
+act ports=8, mode=0, param=5
+wait mode=0, cycle=99
+cell 2_3
+wait mode=0, cycle=21
+route slot=0, option=0, sr=1, source=1, target=4
+act ports=4, mode=0, param=0
+wait mode=0, cycle=53
+dsu slot=2, init_addr_sd=0, init_addr=0, port=2
+rep slot=2, port=2, level=0, iter=3, step=1, delay=47
+act ports=4, mode=0, param=2
+wait mode=0, cycle=90
+dsu slot=1, init_addr_sd=0, init_addr=9, port=1
+rep slot=1, port=1, level=0, iter=4, step=1, delay=0
+dsu slot=1, init_addr_sd=0, init_addr=0, port=3
+rep slot=1, port=3, level=0, iter=4, step=1, delay=0
+act ports=10, mode=0, param=1
+wait mode=0, cycle=3
