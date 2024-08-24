@@ -1,0 +1,48 @@
+epoch <eb0> {
+    #cell 0_0
+    linear route0r < load_r_2_0
+    linear load_r_2_0 == load_w_2_0
+    linear load_r_2_0 + 1 == read_io_3_0
+    
+    linear load_r_2_0 + 10 < load_r_2_1
+    
+    linear load_r_2_1 == load_w_2_1
+    linear load_r_2_1 + 1 == read_io_3_1
+    
+    linear read_io_3_1 + 5 == dpu.e0[0]
+    linear read_io_3_1.e0[1][0] + 5 == dpu.e0[13]
+    
+    
+    #cell 1_0
+    linear route1wr < write_filter
+    linear read_io_3_0 + 1 == write_filter
+    linear write_filter < load_r_2_1
+    
+    linear swb == dpu
+    
+    linear read_io_3_1 + 1 == write_rf4
+    linear write_rf4 + 1 == write_rf5
+    linear write_rf5 + 1 == write_rf6
+    linear read_io_3_1.e0[1][0] + 1 == write_rf4.e0[1]
+    
+    linear write_rf6 + 1 == read_rf3
+    linear read_rf3 == read_rf4
+    linear read_rf4 + 3 == read_rf5
+    linear read_rf5 + 3 == read_rf6
+    
+    linear read_rf3 + 1 == dpu
+    
+    linear dpu.e0[1] == write_rf7
+    linear write_rf7.e0[0][12] + 1 == read_rf7
+    linear write_rf7.e0[1][12] + 1 == read_rf7.e0[1]
+    
+    
+    #cell 2_0
+    linear route2w < write_io_2_1
+    linear read_rf7 + 1 == write_io_2_1
+    
+    linear output_r_3_1 == output_w_3_1
+    linear write_io_2_1.e0[12] + 1 == output_r_3_1.e0[12]
+    
+    
+    }

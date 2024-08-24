@@ -1,0 +1,35 @@
+epoch <config> {
+    linear route0r < route1wr
+    linear route1wr < swb
+    linear swb < route2w
+  }
+  
+  #epoch <cb0> {}
+  #epoch <cb1> {}
+  
+  #loop <lb0> {}
+  epoch <rb0> {
+    #cell 0_0
+    linear load_r_2_1 == load_w_2_1
+    linear load_r_2_1 + 1 == read_io_3_1
+    linear read_io_3_1 + 1 == write_rf3
+  }
+  
+  epoch <rb1> {
+    linear load_r_2_2 == load_w_2_2
+    linear load_r_2_2 + 1 == read_io_3_2
+  
+    linear read_io_3_2 + 1 == write_rf4
+    linear write_rf4 + 1 == read_rf3
+    linear read_rf3 == read_rf4
+    linear read_rf3 + 1 == dpu
+    linear dpu + 1 == write_rf3_back
+    linear write_rf3_back.e0[510][12] + 1 == read_rf3_back
+  
+    linear read_rf3_back + 1 == write_io_2_1
+    linear output_r_3_1 == output_w_3_1
+    linear write_io_2_1 + 1 == output_r_3_1
+  }
+  
+  #epoch <cb2> {}
+  #epoch <cb3> {}
