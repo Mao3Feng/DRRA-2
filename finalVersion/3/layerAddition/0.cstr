@@ -1,0 +1,71 @@
+epoch <config> {
+  linear route0r < route1wr
+  linear route1wr < swb
+  linear swb < route2w
+}
+
+#epoch <cbi0> {}
+#epoch <cbi1> {}
+#epoch <cbi2> {}
+
+#loop <lb1> {}
+#loop <lb0> {}
+epoch <rb0> {
+  #cell 0_0
+  linear load_r_2_1 == load_w_2_1
+  linear load_r_2_1 + 1 == read_io_3_1
+  #cell 1_0
+  linear read_io_3_1 + 1 == write_rf3_1
+}
+
+epoch <rb1> {
+  #cell 0_0
+  linear load_r_2_2 == load_w_2_2
+  linear load_r_2_2 + 1 == read_io_3_2
+
+  #cell 1_0
+  linear read_io_3_2 + 1 == write_rf4_1
+  linear write_rf4_1 + 1 == read_rf3_1
+  linear read_rf3_1 == read_rf4_1
+  linear read_rf3_1 + 1 == dpu
+  linear dpu + 1 == write_rf3_back_1
+  linear write_rf3_back_1.e0[14][63] + 1 == read_rf3_back_1.e0[3]
+  linear write_rf3_back_1.e0[14][63] + 1 == read_rf3_back_1.e0[3]
+
+
+  #cell 2_0
+  linear read_rf3_back_1 + 1 == write_io_2_1
+  linear output_r_3_1 == output_w_3_1
+  linear write_io_2_1 + 1 == output_r_3_1
+}
+
+#epoch <cbl0> {}
+#epoch <cbl1> {}
+
+epoch <rb2> {
+  #cell 0_0
+  linear load_r_2_3 == load_w_2_3
+  linear load_r_2_3 + 1 == read_io_3_3
+  #cell 1_0
+  linear read_io_3_3 + 1 == write_rf3_2
+}
+
+epoch <rb3> {
+  #cell 0_0
+  linear load_r_2_4 == load_w_2_4
+  linear load_r_2_4 + 1 == read_io_3_4
+
+  #cell 1_0
+  linear read_io_3_4 + 1 == write_rf4_2
+  linear write_rf4_2 + 1 == read_rf3_2
+  linear read_rf3_2 == read_rf4_2
+  linear read_rf3_2 + 2 == write_rf3_back_2
+  linear write_rf3_back_2.e0[15] + 1 == read_rf3_back_2
+
+  #cell 2_0
+  linear read_rf3_back_2 + 1 == write_io_2_2
+  linear output_r_3_2 == output_w_3_2
+  linear write_io_2_2 + 1 == output_r_3_2
+}
+
+#epoch <cbl2> {}
