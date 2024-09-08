@@ -1,0 +1,72 @@
+epoch <config> {
+  #cell 0_0
+  linear route0r < load_r_2_0
+  linear load_r_2_0 == load_w_2_0
+  linear load_r_2_0 + 1 == read_io_3_0
+
+  #cell 1_0
+  linear route0r < route1wr
+  linear read_io_3_0 + 1 == write_filter
+  #cell 2_0
+  linear route0r < route2w
+}
+
+
+
+epoch <rb0> {
+  #cell 0_0
+  linear load_r_2_1 == load_w_2_1
+  linear load_r_2_1 + 1 == read_io_3_1
+  linear read_io_3_1 + 11 == dpu.e0[0][0]
+  linear read_io_3_1.e0[1][0] + 11 == dpu.e0[1][0]
+
+  #cell 1_0
+  linear swb == dpu
+  linear read_io_3_1 + 1 == write_rf4
+  linear write_rf4 + 4 == write_rf5
+  linear write_rf5 + 4 == write_rf6
+  linear read_io_3_1.e0[1][0] + 1 == write_rf4.e0[1][0]
+  linear write_rf6 + 1 == read_rf3
+  linear read_rf3 == read_rf4
+  linear read_rf4 + 3 == read_rf5
+  linear read_rf5 + 3 == read_rf6
+  linear read_rf3 + 1 == dpu
+  linear dpu.e0[0][1] == write_rf7
+  linear write_rf7.e0[0][51] + 1 == read_rf7
+  linear write_rf7.e0[1][51] + 1 == read_rf7.e0[1][0]
+
+  #cell 2_0
+  linear read_rf7 + 1 == write_io_2_1
+  linear output_r_3_1 == output_w_3_1
+  linear write_io_2_1.e0[13][3] + 1 == output_r_3_1.e0[55]
+}
+
+
+
+epoch <rb1> {
+  #cell 0_0
+  linear load_r_2_1_t == load_w_2_1_t
+  linear load_r_2_1_t + 1 == read_io_3_1_t
+  linear read_io_3_1_t + 11 == dpu_t.e0[0][0]
+  linear read_io_3_1_t.e0[1][0] + 11 == dpu_t.e0[1][0]
+
+  #cell 1_0
+  linear swb_t == dpu_t
+  linear read_io_3_1_t + 1 == write_rf4_t
+  linear write_rf4_t + 4 == write_rf5_t
+  linear write_rf5_t + 4 == write_rf6_t
+  linear read_io_3_1_t.e0[1][0] + 1 == write_rf4_t.e0[1][0]
+  linear write_rf6_t + 1 == read_rf3_t
+  linear read_rf3_t == read_rf4_t
+  linear read_rf4_t + 3 == read_rf5_t
+  linear read_rf5_t + 3 == read_rf6_t
+  linear read_rf3_t + 1 == dpu_t
+  linear dpu_t.e0[0][1] == write_rf7_t
+  linear write_rf7_t.e0[0][51] + 1 == read_rf7_t
+  linear write_rf7_t.e0[1][51] + 1 == read_rf7_t.e0[1][0]
+
+  #cell 2_0
+  linear read_rf7_t + 1 == write_io_2_1_t
+  linear output_r_3_1_t == output_w_3_1_t
+  linear write_io_2_1_t.e0[9][3] + 1 == output_r_3_1_t.e0[39]
+}
